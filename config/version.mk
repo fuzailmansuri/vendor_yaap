@@ -32,6 +32,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # Signing
 ifneq (eng,$(TARGET_BUILD_VARIANT))
+$(call inherit-product-if-exists, vendor/yaap/signing/keys/keys.mk)
 ifneq (,$(wildcard vendor/yaap/signing/keys/releasekey.pk8))
 PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/yaap/signing/keys/releasekey
 PRODUCT_MAINLINE_BLUETOOTH_SEPOLICY_DEV_CERTIFICATES := $(dir $(PRODUCT_DEFAULT_DEV_CERTIFICATE))
